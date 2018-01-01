@@ -14,18 +14,18 @@ const int irD1=A3;
 const int irD2=A2;
 const int irD3=A1;
 
-const int RmotorSpeed=200;
-const int Lmotorspeed=200;
+const int Rspeed=200;
+const int Lspeed=200;
 byte IRstatus=0;
 
 
 void setup() {
   // set all the motor control pins to outputs
-  pinMode(enA, OUTPUT);
+  pinMode(pwmR, OUTPUT);
   pinMode(negR,OUTPUT);
   pinMode(posR,OUTPUT);
   
-  pinMode(enB, OUTPUT);
+  pinMode(pwmL, OUTPUT);
   pinMode(negL,OUTPUT);
   pinMode(posL,OUTPUT);
   
@@ -101,7 +101,7 @@ void driveMotor(byte IRstatus) {
 }
 
 
-void forward(byte RmotorSpeed, byte LmorotSpeed) {
+void forward(byte RmotorSpeed, byte LmotorSpeed) {
   analogWrite(pwmR, RmotorSpeed);
   analogWrite(pwmL, LmotorSpeed);
   digitalWrite(posR, HIGH);
@@ -111,7 +111,7 @@ void forward(byte RmotorSpeed, byte LmorotSpeed) {
 }
 
 
-void back(byte RmotorSpeed, byte LmorotSpeed) {
+void back(byte RmotorSpeed, byte LmotorSpeed) {
   analogWrite(pwmR, RmotorSpeed);
   analogWrite(pwmL, LmotorSpeed);
   digitalWrite(posR, LOW);
@@ -122,7 +122,7 @@ void back(byte RmotorSpeed, byte LmorotSpeed) {
 
 
 
-void pause(byte RmotorSpeed, byte LmorotSpeed) {
+void pause(byte RmotorSpeed, byte LmotorSpeed) {
   analogWrite(pwmR, RmotorSpeed);
   analogWrite(pwmL, LmotorSpeed);
   digitalWrite(posR, LOW);
@@ -132,7 +132,7 @@ void pause(byte RmotorSpeed, byte LmorotSpeed) {
 }
 
 
-void right(byte flag, byte, RmotorSpeed, byte LmotorSpeed) {
+void right(byte flag, byte RmotorSpeed, byte LmotorSpeed) {
   analogWrite(pwmR, RmotorSpeed);
   analogWrite(pwmL, LmotorSpeed);
   if (1 == flag) {
@@ -151,7 +151,7 @@ void right(byte flag, byte, RmotorSpeed, byte LmotorSpeed) {
 }
 
 
-void left(byte flag, byte, RmotorSpeed, byte LmotorSpeed) {
+void left(byte flag, byte RmotorSpeed, byte LmotorSpeed) {
   analogWrite(pwmR, RmotorSpeed);
   analogWrite(pwmL, LmotorSpeed);
   if (1 == flag) {
